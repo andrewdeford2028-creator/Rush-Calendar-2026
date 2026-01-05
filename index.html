@@ -163,7 +163,7 @@
       <div class="title">
         <h1 id="monthTitle">Monthly Calendar</h1>
         <div class="sub">
-          Share this page as a public schedule. To edit events, open <b>index.html</b> and update the <b>EVENTS</b> array.
+          Official Rush Calendar
         </div>
       </div>
 
@@ -180,7 +180,6 @@
       <div class="footer">
         <div class="legend" id="legend"></div>
         <div class="hint">
-          Tip: add <b>?year=2026&month=1</b> to the URL (month is 1–12).
         </div>
       </div>
     </div>
@@ -194,12 +193,29 @@
  */
 const EVENTS = [
   // Examples — replace these with your real schedule:
-  { date: "2026-01-05", title: "Gym", time: "5:30 PM", tag: "Fitness", color: "#22c55e", note: "Leg day" },
-  { date: "2026-01-07", title: "Chapter", time: "7:00 PM", tag: "Fraternity", color: "#7c3aed", location: "House" },
-  { date: "2026-01-10", title: "Study Block", time: "2:00–5:00 PM", tag: "School", color: "#38bdf8", note: "CS + Spanish" },
-  { date: "2026-01-17", title: "Party", time: "10:00 PM", tag: "Social", color: "#f97316", note: "Bring a friend" },
-  { date: "2026-01-23", title: "Deadline", time: "11:59 PM", tag: "School", color: "#ef4444", note: "Submit assignment" },
+ const EVENTS = [
+  // Chapter (today is a special time)
+  { date: "2026-01-05", title: "Chapter", time: "7:15 PM", tag: "Chapter", color: "#7c3aed", note: "This week only time" },
+
+  // Regular weekly Chapter (Mondays at 7)
+  { date: "2026-01-12", title: "Chapter", time: "7:00 PM", tag: "Chapter", color: "#7c3aed" },
+  { date: "2026-01-19", title: "Chapter", time: "7:00 PM", tag: "Chapter", color: "#7c3aed" },
+  { date: "2026-01-26", title: "Chapter", time: "7:00 PM", tag: "Chapter", color: "#7c3aed" },
+
+  // This week's schedule
+  { date: "2026-01-06", title: "Edible Night", time: "8:00 PM", tag: "Chill", color: "#22c55e" },
+  { date: "2026-01-07", title: "Basketball", time: "4:00 PM", tag: "Sports", color: "#38bdf8" },
+  { date: "2026-01-08", title: "Lazy Thursday", time: "TBD", tag: "Freshmen", color: "#f59e0b", note: "Invite freshmen · 2nd floor · chill / games / movie" },
+  { date: "2026-01-09", title: "Case Race", time: "9:00 PM", tag: "Social", color: "#f97316" },
+  { date: "2026-01-10", title: "Party", time: "10:00 PM", tag: "Social", color: "#f97316" },
+  { date: "2026-01-11", title: "Free Sunday", time: "—", tag: "Freshmen", color: "#f59e0b", note: "Invite freshmen to chill" },
+
+  // Rush
+  { date: "2026-01-22", title: "Rush Day 1", time: "—", tag: "Rush", color: "#ef4444", note: "First day of Rush" },
+  { date: "2026-01-23", title: "Rush Day 2", time: "—", tag: "Rush", color: "#ef4444", note: "Second day of Rush" },
+  { date: "2026-01-24", title: "Rush Day 3 + Bid Night", time: "—", tag: "Rush", color: "#ef4444", note: "Final day of Rush · Bid Night" },
 ];
+
 
 /**
  * ========= CALENDAR RENDERING =========
