@@ -15,6 +15,10 @@
       --chip: rgba(124,58,237,.18);
       --shadow: 0 10px 30px rgba(0,0,0,.35);
     }
+      .day.past {
+  background: rgba(0, 0, 0, 0.28);
+  opacity: 0.7;
+}
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -350,7 +354,13 @@ function buildCalendar(year, month){
 
 function dayCell(dateObj, eventsByDate, todayISO, isOther){
   const cell = document.createElement("div");
-  cell.className = "day" + (isOther ? " other" : "");
+cell.className = "day" + (isOther ? " other" : "");
+
+const cellISO = toISODate(dateObj);
+if (cellISO < todayISO) {
+  cell.classList.add("past");
+}
+
 
   const iso = toISODate(dateObj);
   const top = document.createElement("div");
@@ -470,17 +480,16 @@ function addNav(){
     buildCalendar(p.year, p.month);
   });
 }
-
 (function init(){
-  const p = parseParams();
-  // If URL has no params, default to Jan 2026 (edit this if you want)
-  const hasParams = new URLSearchParams(location.search).has("year") || new URLSearchParams(location.search).has("month");
-  if (!hasParams){
-    setParams(2026, 1);
-  }
-  const cur = parseParams();
-  addNav();
-  buildCalendar(cur.year, cur.month);
+  const YEAR = 2026;
+  const MONTH = 1; // 1 = January
+
+  // Build ONLY this month
+  buildCalendar(YEAR, MONTH);
+
+  // Hide navigation buttons
+  document.getElementById("prevBtn").style.display = "none";
+  document.getElementById("nextBtn").style.display = "none";
 })();
 </script>
 </body>
